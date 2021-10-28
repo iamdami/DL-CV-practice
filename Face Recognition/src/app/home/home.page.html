@@ -1,1 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>JS Face Recognition</ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content>
+  <ion-list *ngfor='let p of homePages: let i = index'>
+    <ion-card routerDirection='root' [routerLink]='[p.url]'>
+
+      <ion-card-header>
+        <ion-card-subtitle>
+          {{ p.subtitle }}
+        </ion-card-subtitle>
+
+        <ion-card-title>
+          {{ p.title }} 
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{ p.content }}
+      </ion-card-content>
+
+    </ion-card>
+  </ion-list>
+</ion-content>
