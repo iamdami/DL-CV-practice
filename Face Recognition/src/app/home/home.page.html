@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngfor='let p of homePages: let i = index'>
-    <ion-card routerDirection='root' [routerLink]='[p.url]'>
+  <ion-list *ngFor="let p of homePages; let i = index">
+    <ion-card routerDirection="'root'" [routerLink]="[p.url]">
 
       <ion-card-header>
         <ion-card-subtitle>
