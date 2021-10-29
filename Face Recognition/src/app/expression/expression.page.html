@@ -1,9 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>expression</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Face Expression</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <!-- 바꾸지 못하게 disabled -->
+    <ion-item [disabled]="isReady">
+      <ion-label>Camera</ion-label>
+      <ion-select value = "environment" (ionChange)="changeCamera($event)">
+        <ion-select-option value="environment">Rear Camera</ion-select-option>
+        <ion-select-option value="user">Front Camera</ion-select-option>
+      </ion-select>
+      <ion-button (click) = "startCamera()">Show</ion-button>
+    </ion-item>
+  </ion-list>
+  <div class="container">
+    <video #video autoplay></video>
+    <canvas #canvas></canvas>
+  </div>
+  <ion-fab *ngIf="isReady" vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="capture()">
+      <ion-icon name = "camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
