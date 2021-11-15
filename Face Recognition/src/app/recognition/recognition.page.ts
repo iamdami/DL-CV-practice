@@ -72,7 +72,7 @@ export class RecognitionPage implements OnInit {
 
     const faceDetectionOptions = new faceapi.SsdMobilenetv1Options({ minConfidence })
     const results = await faceapi.detectAllFaces(this.videoElement.nativeElement, faceDetectionOptions)
-      .withFaceLandMarks()
+      .withFaceLandmarks()
       .withAgeAndGender()
     
     this.out = faceapi.createCanvasFromMedia(this.videoElement.nativeElement) as any
