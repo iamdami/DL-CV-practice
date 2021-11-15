@@ -75,8 +75,7 @@ export class DetectionPage implements OnInit {
     this.renderer.setProperty(this.canvas.nativeElement, 'height', this.videoHeight);
 
     const faceDetectionOptions = new faceapi.SsdMobilenetv1Options({ minConfidence })
-    const results = await faceapi.detectAllFaces(this.videoElement.nativeElement, faceDetectionOptions)
-      .withFaceLandMarks()
+    const results = await faceapi.detectAllFaces(this.videoElement.nativeElement, faceDetectionOptions).withFaceLandmarks()
     
     this.out = faceapi.createCanvasFromMedia(this.videoElement.nativeElement) as any
     faceapi.draw.drawDetections(this.out, results.map(res => res.detection));
