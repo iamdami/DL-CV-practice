@@ -72,12 +72,12 @@ export class ExpressionPage implements OnInit {
 
     const faceDetectionOptions = new faceapi.SsdMobilenetv1Options({ minConfidence })
     const results = await faceapi.detectAllFaces(this.videoElement.nativeElement, faceDetectionOptions)
-      .withFaceLandMarks()
+      .withFaceLandmarks()
       .withFaceExpressions()
     
     this.out = faceapi.createCanvasFromMedia(this.videoElement.nativeElement) as any
     faceapi.draw.drawDetections(this.out, results.map(res => res.detection));
-    faceapi.draw.drawFaceExpressions(this.out, results);
+    faceapi.draw.drawFaceExpressions(this.out, results)
     this.canvas.nativeElement.getContext('2d').drawImage(this.out, 0, 0);
   }
 }
