@@ -86,7 +86,7 @@ export class MergedPage implements OnInit {
          `${faceapi.utils.round(age, 0)} years`,
          `${gender} (${faceapi.utils.round(genderProbability)})`
         ],
-        result.detection.box.bottomLeft
+        result.detection.box.bottomRight
       ).draw(this.out)
     })
     this.canvas.nativeElement.getContext('2d').drawImage(this.out, 0, 0);
